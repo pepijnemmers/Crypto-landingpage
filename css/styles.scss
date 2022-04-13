@@ -1,0 +1,428 @@
+$primary-color: #524FFF;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    accent-color: $primary-color;
+}
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: "Montserrat", Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1;
+    min-height: 200vh;
+}
+
+// main components
+.container {
+    width: min(100% - 5rem, 75rem);
+    margin: 0 auto;
+}
+a {
+    color: inherit;
+}
+.accent {
+    color: $primary-color !important;
+}
+.bold {
+    font-weight: 700;
+}
+.btn {
+    background-color: $primary-color;
+    color: #f2f2f2;
+    padding: 0.8em 1.8em;
+    border-radius: 2rem;
+    border-bottom: 4px solid #2a27e8;
+    transition: border 100ms linear;
+    outline: none;
+
+    &:hover, &:focus {
+        border-bottom-width: 0;
+    }
+}
+.market {
+    position: relative;
+    font-weight: 600;
+    border: 1px solid currentColor;
+    border-radius: 1rem;
+    width: fit-content;
+    padding: .3em .5em;
+    padding-left: 1.8em;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: .6em;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0; 
+        height: 0;
+    }
+    &--neg {
+        color: red;
+        background-color: rgba(255, 0, 0, 0.07);
+        &::before {
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid red;
+        } 
+    }
+    &--pos {
+        color: green;
+        background-color: rgba(0, 128, 0, 0.07);
+          
+        &::before {
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid green;
+        }     
+    }
+}
+
+// header
+.main-header {
+    position: fixed;
+    z-index: 9999999;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 1em 0;
+    transition: all 500ms ease;
+
+    .container {
+        width: min(100% - 5rem, 85rem);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 250ms ease;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 1.4rem;
+        font-weight: 700;
+
+        img {
+            height: 4rem;
+            width: auto;
+            margin-right: .3em;
+        }
+    }
+    ul {
+        display: flex;
+        align-items: center;
+        gap: 2em;
+        list-style: none;
+
+        a {
+            position: relative;
+            font-weight: 500;
+            padding: .5em .2em;
+            text-decoration: none;
+            outline: none;
+
+            &.active {
+                font-weight: 700;
+                color: $primary-color;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                background-color: currentColor;
+                width: 0;
+                height: 1px;
+                transition: width 250ms ease;
+            }
+            &:hover::after, &:focus::after {
+                width: 100%;
+            }
+        }
+    }
+    .btn {
+        text-decoration: none;
+    }
+}
+
+// hero
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-image: url(../images/circles.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        border-radius: 50%;
+        width: 35vw;
+        height: 35vw;
+        filter: blur(100px);
+    }
+    &::before {
+        background-color: rgba(255, 184, 93, 0.3);
+        left: -15vw;
+        top: -15vw;
+        transform: scale(0.5);
+    }
+    &::after {
+        background-color: rgba(82, 79, 255, 0.3);
+        right: -10vw;
+        bottom: -10vw;
+    }
+    .title {
+        position: relative;
+        z-index: 100;
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1;
+            text-transform: uppercase;
+            max-width: min(100% - 2rem, 50rem);
+            margin: 0 auto .5em auto;
+        }
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1em;
+
+            .market {
+                font-size: .9rem;
+            }
+        }
+    }
+    .floating-icons {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        pointer-events: none;
+
+        img {
+            position: absolute;
+            height: 5rem;
+            width: auto;
+        }
+        .ethereum {
+            height: 7rem;
+            left: 3rem;
+            top: 60%;
+            transform:  scaleX(-1);
+        }
+        .binance {
+            top: 12rem;
+            left: 23%;
+            opacity: .8;
+        }
+        .bitcoin {
+            height: 8rem;
+            top: 9rem;
+            right: 8.5rem;
+        }
+        .solana {
+            transform: rotate(25deg);
+            bottom: 4rem;
+            right: 22rem;
+        }
+    }
+}
+
+// stats section
+.stats {
+    position: relative;
+    z-index: 200;
+    padding-bottom: 3rem;
+
+    .container {
+        position: relative;
+        background-color: #fff;
+        margin-top: -5rem;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 0 5px rgba(0,0,0,.2);
+    }
+    nav {
+        display: flex;
+        align-items: center;
+        font-size: .9rem;
+        padding-bottom: 1.5em;
+        margin-bottom: 1.5em;
+        border-bottom: 1px solid #ccc;
+
+        a {
+            padding: .8em 1.2em;
+            margin: 0 .2em;
+            border-radius: 2rem;
+            cursor: pointer;
+            text-decoration: none;
+
+            &.active-tab {
+                background-color: $primary-color !important;
+                color: #f2f2f2;
+            }
+            &.active-filter {
+                font-weight: 700;
+            }
+            &.link {
+                margin-left: auto;
+                font-weight: 700;
+                background-color: transparent !important;
+                color: $primary-color;
+                &:hover, &:focus {
+                    text-decoration: underline;
+                }
+            }
+            &:hover, &:focus {
+                background-color: #ddd;
+            }
+        }
+        span {
+            margin: 0 .8em;
+        }
+    }
+    .flex {
+        display: flex;
+        justify-content: space-between;
+
+        .card {
+            flex: 1 1 25%;
+            padding: 1em 1.5em;
+            cursor: pointer;
+            border-right: 1px solid #ccc;
+
+            &.last-child {
+                border-right: none;
+            }
+            .header {
+                display: flex;
+                align-items: center;
+
+                img {
+                    height: 1.8em;
+                    width: auto;
+                    max-width: 1.8em;
+                    margin-right: .8em;
+                }
+                h2 {
+                    position: relative;
+                    font-size: 1.25rem;
+                    color: #444;
+
+                    span {
+                        font-weight: 400;
+                        color: #959595;
+                    }
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        bottom: -2px;
+                        left: 0;
+                        width: 0;
+                        height: 1px;
+                        background-color: currentColor;
+                        transition: width 250ms ease;
+                    }
+                }
+            }
+            &:hover h2::after {
+                width: calc(100% - 3.5ch);
+            }
+            .main {
+                margin: .8em 0;
+                font-size: 1.4rem;
+                font-weight: 700;
+            }
+            .footer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: .9rem;
+            }
+        }
+    }
+    .piggy-bank {
+        position: absolute;
+        right: -3rem;
+        bottom: -3rem;
+        height: 7rem;
+        width: auto;
+    }
+}
+
+// sticky header onscroll up
+.scroll-down .main-header {
+    transform: translateY(-100%);
+}
+
+@supports (backdrop-filter: blur(6px)) {
+    .scroll-up .main-header {
+        background-color: rgba(255,255,255,.3);
+        box-shadow: 0 0 8px rgba(0,0,0,.2);
+        backdrop-filter: blur(6px);
+    }
+}
+@supports not (backdrop-filter: blur(6px)) {
+    .scroll-up .main-header {
+        background-color: #fff;
+        box-shadow: 0 0 8px rgba(0,0,0,.2);
+    }
+}
+
+
+
+// responsive
+@media screen and (max-width: 1310px) {
+    .stats .flex {
+        flex-wrap: wrap;
+
+        .card {
+            flex: 1 1 50%;
+            &:nth-child(even) {
+                border-right: none;
+            }
+            &:nth-child(1),
+            &:nth-child(2) {
+                border-bottom: 1px solid #ccc;
+            }
+        }
+    }
+    .stats .piggy-bank {
+        right: -1rem;
+        bottom: -1rem;
+        height: 5rem;
+    }
+}
+@media screen and (max-width: 991px) {
+    .stats nav {
+        justify-content: space-between;
+
+        .link {
+            display: none;
+        }
+    }
+}
+
+// load in animation
+.floating-icons {
+    transform: scale(0.8);
+    animation: scale-in 1.5s ease forwards;
+}
+@keyframes scale-in {
+    to { transform: scale(1); }
+}

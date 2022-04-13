@@ -1,0 +1,482 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:root {
+  accent-color: #524FFF;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+  font-family: "Montserrat", Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1;
+  min-height: 200vh;
+}
+
+.container {
+  width: min(100% - 5rem, 75rem);
+  margin: 0 auto;
+}
+
+a {
+  color: inherit;
+}
+
+.accent {
+  color: #524FFF !important;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.btn {
+  background-color: #524FFF;
+  color: #f2f2f2;
+  padding: 0.8em 1.8em;
+  border-radius: 2rem;
+  border-bottom: 4px solid #2a27e8;
+  -webkit-transition: border 100ms linear;
+  transition: border 100ms linear;
+  outline: none;
+}
+.btn:hover, .btn:focus {
+  border-bottom-width: 0;
+}
+
+.market {
+  position: relative;
+  font-weight: 600;
+  border: 1px solid currentColor;
+  border-radius: 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.3em 0.5em;
+  padding-left: 1.8em;
+}
+.market::before {
+  content: "";
+  position: absolute;
+  left: 0.6em;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 0;
+  height: 0;
+}
+.market--neg {
+  color: red;
+  background-color: rgba(255, 0, 0, 0.07);
+}
+.market--neg::before {
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid red;
+}
+.market--pos {
+  color: green;
+  background-color: rgba(0, 128, 0, 0.07);
+}
+.market--pos::before {
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid green;
+}
+
+.main-header {
+  position: fixed;
+  z-index: 9999999;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 1em 0;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+.main-header .container {
+  width: min(100% - 5rem, 85rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
+}
+.main-header .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.main-header .logo img {
+  height: 4rem;
+  width: auto;
+  margin-right: 0.3em;
+}
+.main-header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2em;
+  list-style: none;
+}
+.main-header ul a {
+  position: relative;
+  font-weight: 500;
+  padding: 0.5em 0.2em;
+  text-decoration: none;
+  outline: none;
+}
+.main-header ul a.active {
+  font-weight: 700;
+  color: #524FFF;
+}
+.main-header ul a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: currentColor;
+  width: 0;
+  height: 1px;
+  -webkit-transition: width 250ms ease;
+  transition: width 250ms ease;
+}
+.main-header ul a:hover::after, .main-header ul a:focus::after {
+  width: 100%;
+}
+.main-header .btn {
+  text-decoration: none;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 85vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background-image: url(../images/circles.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.hero::before, .hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  width: 35vw;
+  height: 35vw;
+  -webkit-filter: blur(100px);
+          filter: blur(100px);
+}
+.hero::before {
+  background-color: rgba(255, 184, 93, 0.3);
+  left: -15vw;
+  top: -15vw;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+}
+.hero::after {
+  background-color: rgba(82, 79, 255, 0.3);
+  right: -10vw;
+  bottom: -10vw;
+}
+.hero .title {
+  position: relative;
+  z-index: 100;
+}
+.hero .title h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+  max-width: min(100% - 2rem, 50rem);
+  margin: 0 auto 0.5em auto;
+}
+.hero .title div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1em;
+}
+.hero .title div .market {
+  font-size: 0.9rem;
+}
+.hero .floating-icons {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+}
+.hero .floating-icons img {
+  position: absolute;
+  height: 5rem;
+  width: auto;
+}
+.hero .floating-icons .ethereum {
+  height: 7rem;
+  left: 3rem;
+  top: 60%;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+.hero .floating-icons .binance {
+  top: 12rem;
+  left: 23%;
+  opacity: 0.8;
+}
+.hero .floating-icons .bitcoin {
+  height: 8rem;
+  top: 9rem;
+  right: 8.5rem;
+}
+.hero .floating-icons .solana {
+  -webkit-transform: rotate(25deg);
+          transform: rotate(25deg);
+  bottom: 4rem;
+  right: 22rem;
+}
+
+.stats {
+  position: relative;
+  z-index: 200;
+  padding-bottom: 3rem;
+}
+.stats .container {
+  position: relative;
+  background-color: #fff;
+  margin-top: -5rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.stats nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.9rem;
+  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid #ccc;
+}
+.stats nav a {
+  padding: 0.8em 1.2em;
+  margin: 0 0.2em;
+  border-radius: 2rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+.stats nav a.active-tab {
+  background-color: #524FFF !important;
+  color: #f2f2f2;
+}
+.stats nav a.active-filter {
+  font-weight: 700;
+}
+.stats nav a.link {
+  margin-left: auto;
+  font-weight: 700;
+  background-color: transparent !important;
+  color: #524FFF;
+}
+.stats nav a.link:hover, .stats nav a.link:focus {
+  text-decoration: underline;
+}
+.stats nav a:hover, .stats nav a:focus {
+  background-color: #ddd;
+}
+.stats nav span {
+  margin: 0 0.8em;
+}
+.stats .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.stats .flex .card {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 25%;
+          flex: 1 1 25%;
+  padding: 1em 1.5em;
+  cursor: pointer;
+  border-right: 1px solid #ccc;
+}
+.stats .flex .card.last-child {
+  border-right: none;
+}
+.stats .flex .card .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.stats .flex .card .header img {
+  height: 1.8em;
+  width: auto;
+  max-width: 1.8em;
+  margin-right: 0.8em;
+}
+.stats .flex .card .header h2 {
+  position: relative;
+  font-size: 1.25rem;
+  color: #444;
+}
+.stats .flex .card .header h2 span {
+  font-weight: 400;
+  color: #959595;
+}
+.stats .flex .card .header h2::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  -webkit-transition: width 250ms ease;
+  transition: width 250ms ease;
+}
+.stats .flex .card:hover h2::after {
+  width: calc(100% - 3.5ch);
+}
+.stats .flex .card .main {
+  margin: 0.8em 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.stats .flex .card .footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 0.9rem;
+}
+.stats .piggy-bank {
+  position: absolute;
+  right: -3rem;
+  bottom: -3rem;
+  height: 7rem;
+  width: auto;
+}
+
+.scroll-down .main-header {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
+@supports ((-webkit-backdrop-filter: blur(6px)) or (backdrop-filter: blur(6px))) {
+  .scroll-up .main-header {
+    background-color: rgba(255, 255, 255, 0.3);
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+  }
+}
+@supports not ((-webkit-backdrop-filter: blur(6px)) or (backdrop-filter: blur(6px))) {
+  .scroll-up .main-header {
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  }
+}
+@media screen and (max-width: 1310px) {
+  .stats .flex {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .stats .flex .card {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 50%;
+            flex: 1 1 50%;
+  }
+  .stats .flex .card:nth-child(even) {
+    border-right: none;
+  }
+  .stats .flex .card:nth-child(1), .stats .flex .card:nth-child(2) {
+    border-bottom: 1px solid #ccc;
+  }
+
+  .stats .piggy-bank {
+    right: -1rem;
+    bottom: -1rem;
+    height: 5rem;
+  }
+}
+@media screen and (max-width: 991px) {
+  .stats nav {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .stats nav .link {
+    display: none;
+  }
+}
+.floating-icons {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-animation: scale-in 1.5s ease forwards;
+          animation: scale-in 1.5s ease forwards;
+}
+
+@-webkit-keyframes scale-in {
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes scale-in {
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
