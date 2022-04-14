@@ -18,11 +18,19 @@ body {
   min-height: 200vh;
 }
 
-.container {
-  width: min(100% - 5rem, 75rem);
-  margin: 0 auto;
+@supports (min(100% - 5rem, 75rem)) {
+  .container {
+    width: min(100% - 5rem, 75rem);
+    margin: 0 auto;
+  }
 }
-
+@supports not (min(100% - 5rem, 75rem)) {
+  .container {
+    width: 75rem;
+    max-width: calc(100% - 5rem);
+    margin: 0 auto;
+  }
+}
 a {
   color: inherit;
 }

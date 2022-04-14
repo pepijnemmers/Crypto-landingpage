@@ -29,7 +29,7 @@ document.addEventListener("mousemove", (e) => {
         let x = (e.clientX * parallexSpeed) / 250;
         let y = (e.clientY * parallexSpeed) / 250;
 
-        move.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        move.style.transform = `translateX(${x}px) translateY(${y}px) scaleX(-1)`;
     });
     document.querySelectorAll(".binance").forEach((move) => {
         let parallexSpeed = 10;
@@ -50,6 +50,6 @@ document.addEventListener("mousemove", (e) => {
         let x = (e.clientX * parallexSpeed) / 250;
         let y = (e.clientY * parallexSpeed) / 250;
 
-        move.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        move.style.transform = `translateX(${x}px) translateY(${y}px) rotate(25deg)`;
     });
 });
